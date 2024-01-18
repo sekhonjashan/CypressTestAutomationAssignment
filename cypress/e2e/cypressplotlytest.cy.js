@@ -3,7 +3,7 @@
 describe('Plotly Assignment Test Cypress.io', () => {
   
   
-  /*it('Visit the website and scoll to find number of downloads', () => {
+  it('Visit the website and scoll to find number of downloads', () => {
     cy.visit('https://www.cypress.io/');
 
     cy.contains('Loved by OSS, trusted by Enterprise').scrollIntoView();
@@ -29,10 +29,10 @@ describe('Plotly Assignment Test Cypress.io', () => {
 
     cy.get('#story > span > a').should('exist');
   })
-*/
+
   //Test Case - 3 
- it('Verify the Install command',()=>{
-  cy.visit('https://www.cypress.io/');
+  it('Verify the Install command',()=>{
+    cy.visit('https://www.cypress.io/');
 
   cy.viewport(1200,800);
 
@@ -42,7 +42,6 @@ describe('Plotly Assignment Test Cypress.io', () => {
 
   cy.contains('button','npm install cypress').click();
 
-  cy.clipboard().should('contain','npn install cypress --save-dev');
-
- })
+  cy.clipboard().should('contain','npn install cypress --save-dev');  
+  })  
 })
