@@ -116,7 +116,7 @@ describe('Test case - 4 Accessing \'Visual Review\' Under \'Product\'',()=>{
   });
   it('User click on Product and then Visual reviews',()=>{
 
-    cy.contains('Product').should('be.visible').trigger('mouseover');
+    cy.hoverOnProduct();
 
     cy.contains('Visual Reviews').should('be.visible',{timeout: 15000}).click();
 
@@ -146,7 +146,7 @@ describe('Test case 5: Bonus Test case Smart Orchestration to Test Analytics',()
 
     it('Product to Smart Orchestration to Test Analytics',()=>{
 
-      cy.contains('Product').should('be.visible').trigger('mouseover');
+      cy.hoverOnProduct();
 
       cy.contains('Smart Orchestration').should('be.visible',{timeout: 15000}).click();
 

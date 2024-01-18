@@ -7,6 +7,10 @@ Cypress.Commands.add('readClipboard', () => {
     });
 });
 
+Cypress.Commands.add('hoverOnProduct', () => {
+    cy.contains('Product').should('be.visible').trigger('mouseover');
+});
+
 
 // ***********************************************
 // This example commands.js shows you how to
