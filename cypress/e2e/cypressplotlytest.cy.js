@@ -13,6 +13,10 @@ const dropdownCompany = '#dropdownCompany';
 describe('Cypress Test', () => {
   beforeEach(() => {
     cy.visit('/');
+    cy.get('h1').invoke('text').then((text) => {
+      expect(text).to.match(/Test\.\s*Automate\.\s*Accelerate\./);
+  });
+  
   });
 
   afterEach(() => {

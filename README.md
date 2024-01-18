@@ -41,7 +41,7 @@ The project ID key updated in the cypress.config.js
 
 ## Known Issues
 
-Test case 3 is sprodically failing only with headless in chrome browser.
+-[v1.4]: Test case 3 is sprodically failing only with headless in chrome browser.
 
 Steps to replicate 
 
@@ -49,6 +49,9 @@ Steps to replicate
 
 failure rate 3/5
 
+## Recent Updates
+
+- [v1.9.2]: Resolved sporadic failures in Test Case 3 when running headless in Chrome.
 
 ## Test Cases
 
