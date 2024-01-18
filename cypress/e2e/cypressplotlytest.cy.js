@@ -1,6 +1,7 @@
 
 
-describe('Plotly Assignment Test Cypress.io', () => {
+// Test Case 1: Verify Website Visit and Scroll Functionality
+describe('Test Case 1: Verify Website Visit and Scroll Functionality', () => {
   
   
   it('Visit the website and scoll to find number of downloads', () => {
@@ -13,9 +14,11 @@ describe('Plotly Assignment Test Cypress.io', () => {
     cy.get('.grow').contains('5M+').should('have.class','font-bold text-gray-1000 text-[28px] leading-[40px] font-primary')
   })
 
+});
 
-  //Test Case - 2 
- //dropdownCompany
+//Test Case 2: Navigation to 'About Cypress' Page
+describe('Test Case 2: Navigation to \'About Cypress\' Page',()=>{
+
   it('About Page from dropdown',()=>{
     cy.visit('https://www.cypress.io/');
 
@@ -30,11 +33,10 @@ describe('Plotly Assignment Test Cypress.io', () => {
     cy.get('#story > span > a').should('exist');
   })
 
-  //Test Case - 3 
- 
-});
+})
 
-describe('Validate npm install cypress Command', () => {
+//Test Case 3: Validate 'npm install cypress' Command 
+describe('Test Case 3: Validate npm install cypress Command', () => {
   it('Users can click on "npm install cypress" and verify the copied text', () => {
       cy.viewport(1200,800);
       cy.visit('https://www.cypress.io/');
@@ -57,7 +59,7 @@ describe('Validate npm install cypress Command', () => {
 });
 
 //Test case - 4 Accessing 'Visual Review' Under 'Product
-describe.only('Accessing Visual Review Under Product',()=>{
+describe('Test case - 4 Accessing \'Visual Review\' Under \'Product\'',()=>{
 
   it('User click on Product and then Visual reviews',()=>{
 
@@ -72,5 +74,27 @@ describe.only('Accessing Visual Review Under Product',()=>{
     cy.get('video source[src*="PullRequestReview"]').parent('video').should('be.visible');
         
   })
+})
+
+// Test case 5- Bonus 
+describe('Test case 5: Bonus Test case Smart Orchestration to Test Analytics',()=>{
+
+    it('Product to Smart Orchestration to Test Analytics',()=>{
+
+      cy.visit('https://www.cypress.io/');
+
+      cy.viewport(1200,800);
+
+      cy.contains('Product').should('be.visible').trigger('mouseover');
+
+      cy.contains('Smart Orchestration').should('be.visible').click();
+
+      cy.wait(500);
+
+      cy.get('#test_analytics').scrollIntoView();
+
+      cy.get('a[href="#test_analytics"].border-jade-200').should('be.visible');
+      
+    })
 
 })
