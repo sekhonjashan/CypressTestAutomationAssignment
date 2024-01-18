@@ -13,7 +13,6 @@ const dropdownCompany = '#dropdownCompany';
 describe('Cypress Test', () => {
   beforeEach(() => {
     cy.visit('/');
-   // cy.contains('main section:nth-child(3) img:nth-child(9)').should('be.visible');
   });
 
   afterEach(() => {
@@ -29,15 +28,15 @@ describe('Cypress Test', () => {
 
 // Test Case 2: Navigation to 'About Cypress' Page
   it('About Page from dropdown', () => {
-    cy.get(dropdownCompany).trigger('mouseover').should('be.visible',{timeout:1000});
-    cy.contains(aboutCypressSelector).should('be.visible',{timeout:15000});
-    cy.contains(aboutCypressSelector).click({ force: true });
+    cy.get(dropdownCompany).trigger('mouseover').should('be.visible');
+    cy.contains(aboutCypressSelector).should('be.visible');
+    cy.contains(aboutCypressSelector).click();
     cy.url().should('include', '/about-us');
   });
 
 // Test Case 3: Validate 'npm install cypress' Command
   it('Users can click on "npm install cypress" and verify the copied text', () => {
-    cy.contains('button', 'Install').click({ force: true });
+    cy.contains('button', 'Install').click();
     cy.get('nav dialog .overflow-y-auto').should('be.visible');
     cy.contains('button', 'npm install cypress').click({force:true});
     cy.readClipboard().then((text) => {
@@ -49,7 +48,7 @@ describe('Cypress Test', () => {
 //Test Case 4: Accessing 'Visual Review' Under 'Product'
   it('User click on Product and then Visual reviews', () => {
     cy.hoverOnProduct();
-    cy.contains('Visual Reviews').should('be.visible', { timeout: 15000 }).click({force:true});
+    cy.contains('Visual Reviews').should('be.visible').click();
     cy.contains('Review and debug failures visually').should('be.visible');
     cy.get('video source[src*="PullRequestReview"]').parent('video').should('exist');
   });
@@ -57,7 +56,7 @@ describe('Cypress Test', () => {
 //Bonus Test Case 5: Smart Orchestration to Test Analytics
   it('Product to Smart Orchestration to Test Analytics', () => {
     cy.hoverOnProduct();
-    cy.contains('Smart Orchestration').should('be.visible', { timeout: 15000 }).click({force:true});
+    cy.contains('Smart Orchestration').should('be.visible').click({force:true});
     cy.get('#test_analytics').scrollIntoView();
     cy.get('a[href="#test_analytics"].border-jade-200').should('be.visible');
   });
