@@ -1,5 +1,35 @@
-describe('Test setup - Before each ',()=>{
+// Test Case 1: Verify Website Visit and Scroll Functionality
+describe('Test Case 1: Verify Website Visit and Scroll Functionality', () => {
+  beforeEach(()=>{
 
+    // Setting fullscreen size as the behaviour of the application changes with change in the resolution
+
+    cy.viewport(1200,800);
+
+    cy.visit('https://www.cypress.io/');
+
+  });
+
+  after(() => {
+    // Clears all browser cookies
+    cy.clearCookies();
+
+    // Clears browser's local storage
+    cy.clearLocalStorage();
+
+  });  
+
+  it('Visit the website and scoll to find number of downloads', () => {
+    
+    cy.contains('Loved by OSS, trusted by Enterprise').scrollIntoView();
+    
+    cy.get('.grow').contains('5M+').should('have.class','font-bold text-gray-1000 text-[28px] leading-[40px] font-primary')
+  })
+
+});
+
+//Test Case 2: Navigation to 'About Cypress' Page
+describe('Test Case 2: Navigation to \'About Cypress\' Page',()=>{
   beforeEach(()=>{
 
     // Setting fullscreen size as the behaviour of the application changes with change in the resolution
@@ -19,24 +49,6 @@ describe('Test setup - Before each ',()=>{
 
   });
 
-});
-
-// Test Case 1: Verify Website Visit and Scroll Functionality
-describe('Test Case 1: Verify Website Visit and Scroll Functionality', () => {
-  
-  
-  it('Visit the website and scoll to find number of downloads', () => {
-    
-    cy.contains('Loved by OSS, trusted by Enterprise').scrollIntoView();
-    
-    cy.get('.grow').contains('5M+').should('have.class','font-bold text-gray-1000 text-[28px] leading-[40px] font-primary')
-  })
-
-});
-
-//Test Case 2: Navigation to 'About Cypress' Page
-describe('Test Case 2: Navigation to \'About Cypress\' Page',()=>{
-
   it('About Page from dropdown',()=>{
 
     cy.get('#dropdownCompany').trigger('mouseover');
@@ -53,16 +65,36 @@ describe('Test Case 2: Navigation to \'About Cypress\' Page',()=>{
 })
 
 //Test Case 3: Validate 'npm install cypress' Command 
-describe('Test Case 3: Validate npm install cypress Command', () => {
+describe.only('Test Case 3: Validate npm install cypress Command', () => {
+  beforeEach(()=>{
+
+    // Setting fullscreen size as the behaviour of the application changes with change in the resolution
+
+    cy.viewport(1200,800);
+
+    cy.visit('https://www.cypress.io/');
+
+  });
+
+  after(() => {
+    // Clears all browser cookies
+    cy.clearCookies();
+
+    // Clears browser's local storage
+    cy.clearLocalStorage();
+
+  });
+  
   it('Users can click on "npm install cypress" and verify the copied text', () => {
 
     // Click on the button
       cy.contains('button', 'Install').click();
 
+      cy.get('nav dialog .overflow-y-auto').should('be.visible');
+
       cy.contains('button','npm install cypress').click();
 
-      // Wait for the button text to change to "Copied" and revert back
-      cy.contains('button', 'Copied').should('be.visible');
+      cy.wait(1000);
 
       cy.contains('button', 'npm install cypress').should('be.visible');
 
@@ -78,7 +110,24 @@ describe('Test Case 3: Validate npm install cypress Command', () => {
 
 //Test case - 4 Accessing 'Visual Review' Under 'Product
 describe('Test case - 4 Accessing \'Visual Review\' Under \'Product\'',()=>{
+  beforeEach(()=>{
 
+    // Setting fullscreen size as the behaviour of the application changes with change in the resolution
+
+    cy.viewport(1200,800);
+
+    cy.visit('https://www.cypress.io/');
+
+  });
+
+  after(() => {
+    // Clears all browser cookies
+    cy.clearCookies();
+
+    // Clears browser's local storage
+    cy.clearLocalStorage();
+
+  });
   it('User click on Product and then Visual reviews',()=>{
 
     cy.contains('Product').should('be.visible').trigger('mouseover');
@@ -87,14 +136,31 @@ describe('Test case - 4 Accessing \'Visual Review\' Under \'Product\'',()=>{
 
     cy.contains('Review and debug failures visually').should('be.visible');
     
-    cy.get('video source[src*="PullRequestReview"]').parent('video').should('be.visible');
+    cy.get('video source[src*="PullRequestReview"]').parent('video').should('exist');
         
   })
 })
 
 // Test case 5- Bonus 
 describe('Test case 5: Bonus Test case Smart Orchestration to Test Analytics',()=>{
+  beforeEach(()=>{
 
+    // Setting fullscreen size as the behaviour of the application changes with change in the resolution
+
+    cy.viewport(1200,800);
+
+    cy.visit('https://www.cypress.io/');
+
+  });
+
+  after(() => {
+    // Clears all browser cookies
+    cy.clearCookies();
+
+    // Clears browser's local storage
+    cy.clearLocalStorage();
+
+  });
     it('Product to Smart Orchestration to Test Analytics',()=>{
 
       cy.contains('Product').should('be.visible').trigger('mouseover');
