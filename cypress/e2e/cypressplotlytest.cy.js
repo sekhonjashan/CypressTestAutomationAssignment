@@ -1,16 +1,11 @@
 // Test Case 1: Verify Website Visit and Scroll Functionality
 describe('Test Case 1: Verify Website Visit and Scroll Functionality', () => {
   beforeEach(()=>{
-
-    // Setting fullscreen size as the behaviour of the application changes with change in the resolution
-
-    cy.viewport(1200,800);
-
-    cy.visit('https://www.cypress.io/');
+    cy.visit('/');
 
   });
 
-  after(() => {
+  afterEach(() => {
     // Clears all browser cookies
     cy.clearCookies();
 
@@ -32,15 +27,11 @@ describe('Test Case 1: Verify Website Visit and Scroll Functionality', () => {
 describe('Test Case 2: Navigation to \'About Cypress\' Page',()=>{
   beforeEach(()=>{
 
-    // Setting fullscreen size as the behaviour of the application changes with change in the resolution
-
-    cy.viewport(1200,800);
-
-    cy.visit('https://www.cypress.io/');
+    cy.visit('/');
 
   });
 
-  after(() => {
+  afterEach(() => {
     // Clears all browser cookies
     cy.clearCookies();
 
@@ -65,18 +56,14 @@ describe('Test Case 2: Navigation to \'About Cypress\' Page',()=>{
 })
 
 //Test Case 3: Validate 'npm install cypress' Command 
-describe.only('Test Case 3: Validate npm install cypress Command', () => {
+describe('Test Case 3: Validate npm install cypress Command', () => {
   beforeEach(()=>{
 
-    // Setting fullscreen size as the behaviour of the application changes with change in the resolution
-
-    cy.viewport(1200,800);
-
-    cy.visit('https://www.cypress.io/');
+   cy.visit('/');
 
   });
 
-  after(() => {
+  afterEach(() => {
     // Clears all browser cookies
     cy.clearCookies();
 
@@ -98,6 +85,7 @@ describe.only('Test Case 3: Validate npm install cypress Command', () => {
 
       cy.contains('button', 'npm install cypress').should('be.visible');
 
+      cy.wait(200);
       // Read from the clipboard and assert the copied text
       cy.readClipboard().then((text) => {
           expect(text).to.eq('npm install cypress --save-dev');
@@ -112,15 +100,11 @@ describe.only('Test Case 3: Validate npm install cypress Command', () => {
 describe('Test case - 4 Accessing \'Visual Review\' Under \'Product\'',()=>{
   beforeEach(()=>{
 
-    // Setting fullscreen size as the behaviour of the application changes with change in the resolution
-
-    cy.viewport(1200,800);
-
-    cy.visit('https://www.cypress.io/');
+    cy.visit('/');
 
   });
 
-  after(() => {
+  afterEach(() => {
     // Clears all browser cookies
     cy.clearCookies();
 
@@ -132,7 +116,7 @@ describe('Test case - 4 Accessing \'Visual Review\' Under \'Product\'',()=>{
 
     cy.contains('Product').should('be.visible').trigger('mouseover');
 
-    cy.contains('Visual Reviews').should('be.visible').click();
+    cy.contains('Visual Reviews').should('be.visible',{timeout: 15000}).click();
 
     cy.contains('Review and debug failures visually').should('be.visible');
     
@@ -144,16 +128,12 @@ describe('Test case - 4 Accessing \'Visual Review\' Under \'Product\'',()=>{
 // Test case 5- Bonus 
 describe('Test case 5: Bonus Test case Smart Orchestration to Test Analytics',()=>{
   beforeEach(()=>{
-
-    // Setting fullscreen size as the behaviour of the application changes with change in the resolution
-
-    cy.viewport(1200,800);
-
-    cy.visit('https://www.cypress.io/');
+   //cy.viewport(1200,800);
+   cy.visit('/');
 
   });
 
-  after(() => {
+  afterEach(() => {
     // Clears all browser cookies
     cy.clearCookies();
 
@@ -161,6 +141,7 @@ describe('Test case 5: Bonus Test case Smart Orchestration to Test Analytics',()
     cy.clearLocalStorage();
 
   });
+
     it('Product to Smart Orchestration to Test Analytics',()=>{
 
       cy.contains('Product').should('be.visible').trigger('mouseover');
