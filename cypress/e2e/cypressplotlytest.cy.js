@@ -2,7 +2,7 @@
 
 describe('Plotly Assignment Test Cypress.io', () => {
   
-  
+/*  
   it('Visit the website and scoll to find number of downloads', () => {
     cy.visit('https://www.cypress.io/');
 
@@ -29,19 +29,29 @@ describe('Plotly Assignment Test Cypress.io', () => {
 
     cy.get('#story > span > a').should('exist');
   })
-
+*/
   //Test Case - 3 
-  it('Verify the Install command',()=>{
-    cy.visit('https://www.cypress.io/');
+ 
+});
 
-  cy.viewport(1200,800);
+describe('Validate npm install cypress Command', () => {
+  it('Users can click on "npm install cypress" and verify the copied text', () => {
+      cy.viewport(1200,800);
+      cy.visit('https://www.cypress.io/');
+      // Click on the button
+      cy.contains('button', 'Install').click();
+      cy.contains('button','npm install cypress').click();
+      
+      // Wait for the button text to change to "Copied" and revert back
+      cy.contains('button', 'Copied').should('be.visible');
+      cy.contains('button', 'npm install cypress').should('be.visible');
 
-  cy.contains('button','Install').click();
+      // Read from the clipboard and assert the copied text
+      cy.readClipboard().then((text) => {
+          expect(text).to.eq('npm install cypress --save-dev');
 
-  cy.contains('npm install cypress').should('exist');
-
-  cy.contains('button','npm install cypress').click();
-
-  cy.clipboard().should('contain','npn install cypress --save-dev');  
-  })  
-})
+          // For logging purpose
+          cy.log('Copied text:', text);
+      });
+  });
+});

@@ -1,4 +1,13 @@
 import 'cypress-clipboard';
+
+
+Cypress.Commands.add('readClipboard', () => {
+    return cy.window().then((win) => {
+        return win.navigator.clipboard.readText();
+    });
+});
+
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
