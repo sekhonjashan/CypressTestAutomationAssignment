@@ -29,7 +29,7 @@ OR
 1. Baseurl is set to https://www.cypress.io in the cypress.config.js file
 2. Currently the width and height for the viewport is set to 1200,800 as a property in the config file.
 
-### Cypress execution
+### Cypress execution - CI CLOUD Dashboard
 
 The project is currently configured to run CI dashboard 
 
