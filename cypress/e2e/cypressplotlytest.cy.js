@@ -18,7 +18,9 @@ describe('Test Case 1: Verify Website Visit and Scroll Functionality', () => {
     
     cy.contains('Loved by OSS, trusted by Enterprise').scrollIntoView();
     
-    cy.get('.grow').contains('5M+').should('have.class','font-bold text-gray-1000 text-[28px] leading-[40px] font-primary')
+    cy.get('.grow').contains('5M+');
+
+    cy.contains("Weekly downloads").siblings("div").first().should('have.text','5M+');
   })
 
 });
@@ -146,9 +148,7 @@ describe('Test case 5: Bonus Test case Smart Orchestration to Test Analytics',()
 
       cy.contains('Product').should('be.visible').trigger('mouseover');
 
-      cy.contains('Smart Orchestration').should('be.visible').click();
-
-      cy.wait(500);
+      cy.contains('Smart Orchestration').should('be.visible',{timeout: 15000}).click();
 
       cy.get('#test_analytics').scrollIntoView();
 
