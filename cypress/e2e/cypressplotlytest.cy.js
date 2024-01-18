@@ -1,4 +1,21 @@
+/**
+ * @author Jashan Singh
+ * @version 1.9
+ * 
+ * This is the main file that includes all the test cases
+ * 
+ * Each test case is blocked in seperate describe block
+ * 
+ * Otherway could be having all the test cases seperated by it() block but under same describe() block
+ * 
+ * Seperate describe() block helps to use dot operater only to execute only the requried block of test cases
+ * 
+ */
+
+
+// Created a const to re-use a selector
 const aboutCypressSelector = 'About Cypress';
+const dropdownCompany = '#dropdownCompany';
 
 // Test Case 1: Verify Website Visit and Scroll Functionality
 describe('Test Case 1: Verify Website Visit and Scroll Functionality', () => {
@@ -46,7 +63,7 @@ describe('Test Case 2: Navigation to \'About Cypress\' Page',()=>{
 
   it('About Page from dropdown',()=>{
 
-    cy.get('#dropdownCompany').trigger('mouseover');
+    cy.get(dropdownCompany).trigger('mouseover');
 
     cy.contains(aboutCypressSelector).should('be.visible');
 
