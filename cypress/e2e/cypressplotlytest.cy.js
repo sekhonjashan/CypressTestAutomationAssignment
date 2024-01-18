@@ -42,10 +42,6 @@ describe('Plotly Assignment Test Cypress.io', () => {
 
   cy.contains('button','npm install cypress').click();
 
-  cy.readClipboard().then((text) =>{
-    expect(text).to.eq('npm install cypress --save-dev');
-
-    cy.console.log('Copied text is :',text);
-  })
-  })
+  cy.clipboard().should('contain','npn install cypress --save-dev');
+ })
 })
