@@ -43,5 +43,6 @@ describe('Plotly Assignment Test Cypress.io', () => {
   cy.contains('button','npm install cypress').click();
 
   cy.clipboard().should('contain','npn install cypress --save-dev');
+
  })
 })
