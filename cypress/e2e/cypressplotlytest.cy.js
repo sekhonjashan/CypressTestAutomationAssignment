@@ -3,8 +3,8 @@
 describe('Plotly Assignment Test Cypress.io', () => {
   
   
-  it('Visit the website and scoll to find number of downloads', () => {
-    cy.visit('https://www.cypress.io/')
+  /*it('Visit the website and scoll to find number of downloads', () => {
+    cy.visit('https://www.cypress.io/');
 
     cy.contains('Loved by OSS, trusted by Enterprise').scrollIntoView();
     
@@ -17,16 +17,35 @@ describe('Plotly Assignment Test Cypress.io', () => {
   //Test Case - 2 
  //dropdownCompany
   it('About Page from dropdown',()=>{
-    cy.visit('https://www.cypress.io/')
+    cy.visit('https://www.cypress.io/');
 
     cy.get('#dropdownCompany').trigger('mouseover');
 
     cy.contains('About Cypress').should('be.visible');
-    
+
     cy.contains('About Cypress').click();
 
     cy.url().should('include','/about-us');
 
     cy.get('#story > span > a').should('exist');
+  })
+*/
+  //Test Case - 3 
+ it('Verify the Install command',()=>{
+  cy.visit('https://www.cypress.io/');
+
+  cy.viewport(1200,800);
+
+  cy.contains('button','Install').click();
+
+  cy.contains('npm install cypress').should('exist');
+
+  cy.contains('button','npm install cypress').click();
+
+  cy.readClipboard().then((text) =>{
+    expect(text).to.eq('npm install cypress --save-dev');
+
+    cy.console.log('Copied text is :',text);
+  })
   })
 })
