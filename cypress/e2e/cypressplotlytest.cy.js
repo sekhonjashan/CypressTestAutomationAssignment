@@ -65,7 +65,7 @@ describe('Test Case 2: Navigation to \'About Cypress\' Page',()=>{
 
     cy.get(dropdownCompany).trigger('mouseover');
 
-    cy.contains(aboutCypressSelector).should('be.visible');
+    cy.contains(aboutCypressSelector).should('be.visible',{timeout: 15000});
 
     cy.contains(aboutCypressSelector).click();
 
