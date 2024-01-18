@@ -29,9 +29,13 @@ OR
 1. Baseurl is set to https://www.cypress.io in the cypress.config.js file
 2. Currently the width and height for the viewport is set to 1200,800 as a property in the config file.
 
-### Dashboard execution
+### Cypress execution
 
 The project is currently configured to run CI dashboard 
+
+The dashboard link : https://cloud.cypress.io/projects/wyxqwh/runs/
+
+Latest run : https://cloud.cypress.io/projects/wyxqwh/runs/3/overview?roarHideRunsWithDiffGroupsAndTags=1
 
 bash > npx cypress run --browser chrome --record --key 479daa5f-d3c3-41aa-82d9-9c8f3443acab -
 -spec "cypress/e2e/cypressplotlytest.cy.js"
