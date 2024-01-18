@@ -1,0 +1,12 @@
+{
+  "name": "cypresstestautomationassignment",
+  "version": "1.0.0",
+  "description": "This document outlines a series of test cases to be performed using Cypress, a popular end-to-end testing framework. The tests are targeted at the Cypress website, [https://www.cypress.io/](https://www.cypress.io/).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
