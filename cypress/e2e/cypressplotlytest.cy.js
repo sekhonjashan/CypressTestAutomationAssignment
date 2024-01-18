@@ -2,7 +2,7 @@
 
 describe('Plotly Assignment Test Cypress.io', () => {
   
-/*  
+  
   it('Visit the website and scoll to find number of downloads', () => {
     cy.visit('https://www.cypress.io/');
 
@@ -29,7 +29,7 @@ describe('Plotly Assignment Test Cypress.io', () => {
 
     cy.get('#story > span > a').should('exist');
   })
-*/
+
   //Test Case - 3 
  
 });
@@ -41,7 +41,7 @@ describe('Validate npm install cypress Command', () => {
       // Click on the button
       cy.contains('button', 'Install').click();
       cy.contains('button','npm install cypress').click();
-      
+
       // Wait for the button text to change to "Copied" and revert back
       cy.contains('button', 'Copied').should('be.visible');
       cy.contains('button', 'npm install cypress').should('be.visible');
@@ -55,3 +55,22 @@ describe('Validate npm install cypress Command', () => {
       });
   });
 });
+
+//Test case - 4 Accessing 'Visual Review' Under 'Product
+describe.only('Accessing Visual Review Under Product',()=>{
+
+  it('User click on Product and then Visual reviews',()=>{
+
+    cy.visit('https://www.cypress.io/');
+
+    cy.contains('Product').should('be.visible').trigger('mouseover');
+
+    cy.contains('Visual Reviews').should('be.visible').click();
+
+    cy.contains('Review and debug failures visually').should('be.visible');
+    
+    cy.get('video source[src*="PullRequestReview"]').parent('video').should('be.visible');
+        
+  })
+
+})
