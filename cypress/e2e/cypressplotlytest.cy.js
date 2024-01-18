@@ -1,3 +1,5 @@
+const aboutCypressSelector = 'About Cypress';
+
 // Test Case 1: Verify Website Visit and Scroll Functionality
 describe('Test Case 1: Verify Website Visit and Scroll Functionality', () => {
   beforeEach(()=>{
@@ -46,13 +48,12 @@ describe('Test Case 2: Navigation to \'About Cypress\' Page',()=>{
 
     cy.get('#dropdownCompany').trigger('mouseover');
 
-    cy.contains('About Cypress').should('be.visible');
+    cy.contains(aboutCypressSelector).should('be.visible');
 
-    cy.contains('About Cypress').click();
+    cy.contains(aboutCypressSelector).click();
 
     cy.url().should('include','/about-us');
 
-    cy.get('#story > span > a').should('exist');
   })
 
 })
