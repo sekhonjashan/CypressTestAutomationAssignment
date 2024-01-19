@@ -42,21 +42,19 @@ bash > npx cypress run --browser chrome --record --key 479daa5f-d3c3-41aa-82d9-9
 
 The project ID key updated in the cypress.config.js
 
-
-## Known Issues
-
--[v1.4]: Test case 3 is sprodically failing only with headless in chrome browser.
-
-Steps to replicate 
-
-1. execute : > npx cypress run -browser chrome --spec "cypress/e2e/cypressplotlytest.cy.js"
-
-failure rate 3/5
-
 ## Recent Updates
+
+**changelog:**
 
 - [v1.9.2]: Resolved sporadic failures in Test Case 3 when running headless in Chrome.
 
+- [v1.4.0]: Test case 3 is sprodically failing only with headless in chrome browser.
+
+      Steps to replicate 
+      
+      1. execute : > npx cypress run -browser chrome --spec "cypress/e2e/cypressplotlytest.cy.js"
+      
+      failure rate 3/5
 ## Test Cases
 
 Each test case is described below with its specific steps and expected outcomes.
